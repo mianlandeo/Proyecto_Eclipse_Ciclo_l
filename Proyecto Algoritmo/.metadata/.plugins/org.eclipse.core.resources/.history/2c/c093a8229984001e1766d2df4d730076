@@ -1,0 +1,143 @@
+package mantenimiento;
+
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import java.awt.Color;
+import javax.swing.ImageIcon;
+
+public class ConsultaCeramico extends JFrame implements ActionListener {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JTextField txtPrecio;
+	private JTextField txtAncho;
+	private JTextField txtLargo;
+	private JTextField txtEspesor;
+	private JTextField txtContenido;
+	private JButton btnCerrar;
+	private JComboBox boxSeleccion;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ConsultaCeramico frame = new ConsultaCeramico();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public ConsultaCeramico() {
+		setBackground(new Color(128, 128, 128));
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 257);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblModelo = new JLabel("Modelo");
+		lblModelo.setBounds(10, 11, 46, 14);
+		contentPane.add(lblModelo);
+		
+		JLabel lblPrecio = new JLabel("Precio (S/)");
+		lblPrecio.setBounds(10, 44, 66, 14);
+		contentPane.add(lblPrecio);
+		
+		JLabel lblAncho = new JLabel("Ancho (cm)");
+		lblAncho.setBounds(10, 77, 66, 14);
+		contentPane.add(lblAncho);
+		
+		JLabel lblLargo = new JLabel("Largo (cm)");
+		lblLargo.setBounds(10, 111, 66, 14);
+		contentPane.add(lblLargo);
+		
+		JLabel lblEspesor = new JLabel("Espesor (mm)");
+		lblEspesor.setBounds(10, 146, 66, 14);
+		contentPane.add(lblEspesor);
+		
+		JLabel lblContenido = new JLabel("Contenido");
+		lblContenido.setBounds(10, 182, 66, 14);
+		contentPane.add(lblContenido);
+		
+		btnCerrar = new JButton("Cerrar");
+		btnCerrar.setIcon(new ImageIcon("C:\\Users\\mianl\\Projectos Eclipse\\proyecto en grupo\\Proyecto-Ceramicas\\Tienda Ceramica\\src\\img\\exit.png"));
+		btnCerrar.setBounds(307, 7, 117, 51);
+		btnCerrar.addActionListener(this);
+		contentPane.add(btnCerrar);
+		
+		txtPrecio = new JTextField();
+		txtPrecio.setEnabled(false);
+		txtPrecio.setBounds(86, 41, 211, 20);
+		contentPane.add(txtPrecio);
+		txtPrecio.setColumns(10);
+		
+		txtAncho = new JTextField();
+		txtAncho.setEnabled(false);
+		txtAncho.setBounds(86, 77, 211, 20);
+		contentPane.add(txtAncho);
+		txtAncho.setColumns(10);
+		
+		txtLargo = new JTextField();
+		txtLargo.setEnabled(false);
+		txtLargo.setBounds(86, 108, 211, 20);
+		contentPane.add(txtLargo);
+		txtLargo.setColumns(10);
+		
+		txtEspesor = new JTextField();
+		txtEspesor.setEnabled(false);
+		txtEspesor.setBounds(86, 143, 211, 20);
+		contentPane.add(txtEspesor);
+		txtEspesor.setColumns(10);
+		
+		txtContenido = new JTextField();
+		txtContenido.setEnabled(false);
+		txtContenido.setBounds(86, 179, 211, 20);
+		contentPane.add(txtContenido);
+		txtContenido.setColumns(10);
+		
+		boxSeleccion = new JComboBox();
+		boxSeleccion.setBounds(86, 7, 211, 22);
+		contentPane.add(boxSeleccion);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent event) {
+		if (event.getSource() == btnCerrar) {
+			btnPerformedDelete(event);
+		}
+		if (event.getSource() == boxSeleccion) {
+			btnPerformedDelete(event);
+		}
+	}
+
+	private void btnPerformedDelete(ActionEvent event) {
+		System.exit(-1);
+	}
+	private void btnPerformedDelete(ActionEvent event) {
+		System.exit(-1);
+	}
+	
+}

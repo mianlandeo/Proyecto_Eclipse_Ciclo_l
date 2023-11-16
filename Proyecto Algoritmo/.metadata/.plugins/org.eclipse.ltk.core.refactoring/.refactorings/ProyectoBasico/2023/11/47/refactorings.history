@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;DialogoListar.java&apos; to &apos;Tienda/src/mantenimiento&apos;&#x0D;&#x0A;- Original project: &apos;ProyectoBasico&apos;&#x0D;&#x0A;- Destination element: &apos;Tienda/src/mantenimiento&apos;&#x0D;&#x0A;- Original element: &apos;proyecto.DialogoListar.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="=Tienda/src&lt;mantenimiento" element1="/src&lt;proyecto{DialogoListar.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1700075279040" units="1" version="1.0"/>
+</session>

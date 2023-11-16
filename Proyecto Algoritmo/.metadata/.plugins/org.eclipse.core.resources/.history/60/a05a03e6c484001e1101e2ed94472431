@@ -1,0 +1,116 @@
+package configuracion;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
+public class ConfigurarDescuentos extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField txtMas_Quince;
+	private JTextField txtOnce_quince;
+	private JTextField txtSeis_Diez;
+	private JTextField txtUna_cinco;
+	private JLabel lblNewLabel_4;
+	private JLabel lblNewLabel_5;
+	private JLabel lblNewLabel_6;
+	private JLabel lblNewLabel_7;
+	private JButton btnAceptar;
+	private JButton btnCerrar;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ConfigurarDescuentos frame = new ConfigurarDescuentos();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public ConfigurarDescuentos() {
+		setTitle("Configurar porcentaje de descuento");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 160);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("1 a 5 unidades");
+		lblNewLabel.setBounds(10, 11, 89, 14);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("6 a 10 unidades");
+		lblNewLabel_1.setBounds(10, 36, 89, 14);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("11 a 15 unidades");
+		lblNewLabel_2.setBounds(10, 61, 89, 14);
+		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("mas de 15 unidades");
+		lblNewLabel_3.setBounds(10, 86, 100, 14);
+		contentPane.add(lblNewLabel_3);
+		
+		txtMas_Quince = new JTextField();
+		txtMas_Quince.setBounds(116, 83, 136, 20);
+		contentPane.add(txtMas_Quince);
+		txtMas_Quince.setColumns(10);
+		
+		txtOnce_quince = new JTextField();
+		txtOnce_quince.setBounds(116, 58, 136, 20);
+		contentPane.add(txtOnce_quince);
+		txtOnce_quince.setColumns(10);
+		
+		txtSeis_Diez = new JTextField();
+		txtSeis_Diez.setBounds(116, 33, 136, 20);
+		contentPane.add(txtSeis_Diez);
+		txtSeis_Diez.setColumns(10);
+		
+		txtUna_cinco = new JTextField();
+		txtUna_cinco.setBounds(116, 8, 136, 20);
+		contentPane.add(txtUna_cinco);
+		txtUna_cinco.setColumns(10);
+		
+		lblNewLabel_4 = new JLabel("%");
+		lblNewLabel_4.setBounds(262, 11, 46, 14);
+		contentPane.add(lblNewLabel_4);
+		
+		lblNewLabel_5 = new JLabel("%");
+		lblNewLabel_5.setBounds(262, 36, 46, 14);
+		contentPane.add(lblNewLabel_5);
+		
+		lblNewLabel_6 = new JLabel("%");
+		lblNewLabel_6.setBounds(262, 61, 46, 14);
+		contentPane.add(lblNewLabel_6);
+		
+		lblNewLabel_7 = new JLabel("%");
+		lblNewLabel_7.setBounds(262, 86, 46, 14);
+		contentPane.add(lblNewLabel_7);
+		
+		btnAceptar = new JButton("Aceptar");
+		btnAceptar.setBounds(335, 8, 89, 23);
+		contentPane.add(btnAceptar);
+		
+		btnCerrar = new JButton("Cerrar");
+		btnCerrar.setBounds(335, 36, 89, 23);
+		contentPane.add(btnCerrar);
+	}
+
+}

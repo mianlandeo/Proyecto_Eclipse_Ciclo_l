@@ -1,0 +1,314 @@
+package app;
+
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import ayuda.AcercaDe;
+import configuracion.ConfigurarCantidadOptima;
+import configuracion.ConfigurarCuotaDiaria;
+import configuracion.ConfigurarDescuentos;
+import configuracion.ConfigurarObsequios;
+import mantenimiento.ConsultaCeramico;
+import mantenimiento.ModificarCeramico;
+import ventas.GenerarReportes;
+import ventas.Vender;
+
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.ImageIcon;
+
+public class MenuPrincipal extends JFrame implements ActionListener{
+
+	/** Ingresar Variables Globales**/
+	// Datos mínimos del primer producto
+	public static String modelo0 = "Cinza Plus";
+	public static double precio0 = 92.56;
+	public static double ancho0 = 62.0;
+	public static double largo0 = 62.0;
+	public static double espesor0 = 8;
+	public static int contenido0 = 6;
+	// Datos mínimos del segundo producto
+	public static String modelo1 = "Luxury";
+	public static double precio1 = 42.77;
+	public static double ancho1 = 60;
+	public static double largo1 = 60;
+	public static double espesor1 = 8.5;
+	public static int contenido1 = 4;
+	// Datos mínimos del tercer producto
+	public static String modelo2 = "Austria";
+	public static double precio2 = 52.45;
+	public static double ancho2 = 45;
+	public static double largo2 = 45;
+	public static double espesor2 = 6.5;
+	public static int contenido2 = 12;
+	// Datos mínimos del cuarto producto
+	public static String modelo3 = "Yungay Mix";
+	public static double precio3 = 55.89;
+	public static double ancho3 = 80;
+	public static double largo3 = 120;
+	public static double espesor3 = 6.8;
+	public static int contenido3 = 9;
+	// Datos mínimos del quinto producto
+	public static String modelo4 = "Thalía";
+	public static double precio4 = 45;
+	public static double ancho4 = 45;
+	public static double largo4 = 11.8;
+	public static double espesor4 = 7.2;
+	public static int contenido4 = 10;
+	// Porcentajes de descuento
+	public static double porcentaje1 = 7.5;
+	public static double porcentaje2 = 10.0;
+	public static double porcentaje3 = 12.5;
+	public static double porcentaje4 = 15.0;
+	// Obsequio
+	public static String tipoObsequio = "Lapicero";
+	public static int obsequioCantidad1 = 2;
+	public static int obsequioCantidad2 = 3;
+	public static int obsequioCantidad3 = 4;
+	// Cantidad óptima de unidades vendidas por día
+	public static int cantidadOptima = 10;
+	// Cuota diaria
+	public static double cuotaDiaria = 30000;
+	
+	
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JMenuItem mntmCerrar;
+	private JMenuItem mntmConsulta_ceramico;
+	private JMenuItem mntmModificar_ceramico;
+	private JMenuItem mntmLista_Ceramico;
+	private JMenuItem mntmVender;
+	private JMenuItem mntmGenerar_reportes;
+	private JMenuItem mntmConfigurar_obsequio;
+	private JMenuItem mntmConfigurar_descuento;
+	private JMenuItem mntmConf_Cantidad_optima;
+	private JMenuItem mntmConf_cuota_diaria;
+	private JMenuItem mntmAcerca_de;
+	private JMenu mnMantenimiento;
+	private JMenu mnVentas;
+	private JMenu mnConfiguracion;
+	private JMenu mnAyuda;
+	private JMenu mnArchivos;
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MenuPrincipal frame = new MenuPrincipal();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Inicio del menu frame.
+	 */
+	public MenuPrincipal() {
+		setTitle("Tienda");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 550, 400);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		mnArchivos = new JMenu("Archivos");
+		menuBar.add(mnArchivos);
+		
+		mntmCerrar = new JMenuItem("Salir");
+		mntmCerrar.setIcon(new ImageIcon("C:\\Users\\mianl\\Projectos Eclipse\\proyecto en grupo\\Proyecto-Ceramicas\\Tienda Ceramica\\src\\img\\exit.png"));
+		mntmCerrar.setSelectedIcon(null);
+		mntmCerrar.addActionListener(this);
+		mnArchivos.add(mntmCerrar);
+		
+		mnMantenimiento = new JMenu("Mantenimiento");
+		menuBar.add(mnMantenimiento);
+		
+		mntmConsulta_ceramico = new JMenuItem("Consultar cer\u00E1mico");
+		mntmConsulta_ceramico.setIcon(new ImageIcon("C:\\Users\\mianl\\Projectos Eclipse\\proyecto en grupo\\Proyecto-Ceramicas\\Tienda Ceramica\\src\\img\\search.png"));
+		mntmConsulta_ceramico.addActionListener(this);
+		mnMantenimiento.add(mntmConsulta_ceramico);
+		
+		mntmModificar_ceramico = new JMenuItem("Modificar cer\u00E1mico");
+		mntmModificar_ceramico.addActionListener(this);
+		mnMantenimiento.add(mntmModificar_ceramico);
+		
+		mntmLista_Ceramico = new JMenuItem("Listar cer\u00E1micos");
+		mntmLista_Ceramico.addActionListener(this);
+		mnMantenimiento.add(mntmLista_Ceramico);
+		
+		mnVentas = new JMenu("Ventas");
+		menuBar.add(mnVentas);
+		
+		mntmVender = new JMenuItem("Vender");
+		mnVentas.add(mntmVender);
+		
+		mntmGenerar_reportes = new JMenuItem("Generar reportes");
+		mntmGenerar_reportes.addActionListener(this);
+		mnVentas.add(mntmGenerar_reportes);
+		
+		mnConfiguracion = new JMenu("Configuraci\u00F3n");
+		menuBar.add(mnConfiguracion);
+		
+		mntmConfigurar_obsequio = new JMenuItem("Configurar obsequios");
+		mntmConfigurar_obsequio.addActionListener(this);
+		mnConfiguracion.add(mntmConfigurar_obsequio);
+		
+		mntmConfigurar_descuento = new JMenuItem("Configurar descuentos");
+		mntmConfigurar_descuento.addActionListener(this);
+		mnConfiguracion.add(mntmConfigurar_descuento);
+		
+		mntmConf_Cantidad_optima = new JMenuItem("Configurar cantidad \u00F3ptima");
+		mntmConf_Cantidad_optima.addActionListener(this);
+		mnConfiguracion.add(mntmConf_Cantidad_optima);
+		
+		mntmConf_cuota_diaria = new JMenuItem("Configurar cuota diaria");
+		mntmConf_cuota_diaria.addActionListener(this);
+		mnConfiguracion.add(mntmConf_cuota_diaria);
+		
+		mnAyuda = new JMenu("Ayuda");
+		menuBar.add(mnAyuda);
+		
+		mntmAcerca_de = new JMenuItem("Acerca de Tienda");
+		mnAyuda.add(mntmAcerca_de);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		//Cerrar todo
+		if (e.getSource() == mntmCerrar) {
+			deleteMenuMain(e);
+		}
+		//Mantenimiento
+		if (e.getSource() == mntmConsulta_ceramico) {
+			menuActionConsultCeramico(e);
+		}
+		if (e.getSource() == mntmModificar_ceramico) {
+			menuActionModifyCeramico(e);
+		}
+		if (e.getSource() == mntmLista_Ceramico) {
+			menuActionListCeramico(e);
+		}
+		//Ventas
+		if (e.getSource() == mntmVender) {
+			menuActionVender(e);
+		}
+		if (e.getSource() == mntmGenerar_reportes) {
+			menuActionGenerarReportes(e);
+		}
+		//Configuración
+		if (e.getSource() == mntmConfigurar_descuento) {
+			menuActionConfigurarDescuento(e);
+		}
+		if (e.getSource() == mntmConfigurar_obsequio) {
+			menuActionConfigurarObsequio(e);
+		}
+		if (e.getSource() == mntmConf_Cantidad_optima) {
+			menuActionCantidadOptima(e);
+		}
+		if (e.getSource() == mntmConf_cuota_diaria) {
+			menuActionCuotaDiaria(e);
+		}
+		//Ayuda
+		if (e.getSource() == mntmAcerca_de) {
+			menuActionAcercaDe(e);
+		}
+	}
+
+	//Esto Cierra todo
+	private void deleteMenuMain(ActionEvent e) {
+		System.exit(0);
+	}
+	
+	/*Mantenimiento*/
+	//Lista tienda
+	private void menuActionListCeramico(ActionEvent e) {
+		ModificarCeramico listaCeramico = new ModificarCeramico();
+		listaCeramico.setLocationRelativeTo(this);
+		listaCeramico.setVisible(true);
+		
+		//Faltan codigo
+		
+	}
+
+	//Modificar Tienda
+	private void menuActionModifyCeramico(ActionEvent e) {
+		ModificarCeramico modificarCeramico = new ModificarCeramico();
+		modificarCeramico.setVisible(true);
+		//Faltan codigo
+	}
+
+	//Consultar Tienda
+	private void menuActionConsultCeramico(ActionEvent e) {
+		ConsultaCeramico consultaCeramico = new ConsultaCeramico();
+		consultaCeramico.setLocationRelativeTo(this);
+		consultaCeramico.setVisible(true);
+		//Faltan codigo
+	}
+	
+	//========================================================================================================================
+	/*Ventas*/
+	//Vender 
+	private void menuActionVender(ActionEvent e) {
+		Vender vender = new Vender();
+		vender.setVisible(true);
+		//Faltan codigo
+	}
+	
+	//Generar Reportes
+	private void menuActionGenerarReportes(ActionEvent e) {
+		GenerarReportes generarReportes = new GenerarReportes();
+		generarReportes.setLocationRelativeTo(this);
+		generarReportes.setVisible(true);
+		//Faltan codigo
+	}
+	
+	//========================================================================================================================
+	/*Configuración*/
+	//Configurar descuento
+	private void menuActionConfigurarDescuento(ActionEvent e) {
+		ConfigurarDescuentos configurarDescuentos = new ConfigurarDescuentos();
+		configurarDescuentos.setVisible(true);
+		
+	}
+	
+	//Configurar obsequios
+	private void menuActionConfigurarObsequio(ActionEvent e) {
+		ConfigurarObsequios configurarObsequios = new ConfigurarObsequios();
+		configurarObsequios.setVisible(true);
+	}
+
+	//Configurar cantidad óptima
+	private void menuActionCantidadOptima(ActionEvent e) {
+		ConfigurarCantidadOptima configurarCantidadOptima = new ConfigurarCantidadOptima();
+		configurarCantidadOptima.setVisible(true);
+	}
+	
+	//Configurar cuota diaria
+	private void menuActionCuotaDiaria(ActionEvent e) {
+		ConfigurarCuotaDiaria configurarCuotaDiaria = new ConfigurarCuotaDiaria();
+		configurarCuotaDiaria.setVisible(true);
+	}
+	
+	//========================================================================================================================
+	/*Ayuda*/
+	//Acerca de Tienda
+	private void menuActionAcercaDe(ActionEvent e) {
+		AcercaDe acercaDe = new AcercaDe();
+		acercaDe.setVisible(true);
+	}
+	
+}
