@@ -97,6 +97,10 @@ public class ListaTienda extends JDialog implements ActionListener {
 	}
 
 	protected void actionPerformedBtnListar(ActionEvent e) {
+		getResult();
+	}
+	
+	void getResult() {
 		imprimir("Listado de Ceramicos");
 		imprimir("Modelo\t:" + MenuPrincipal.modelo0);
 		imprimir("Precio\t: " + MenuPrincipal.precio0);
@@ -132,7 +136,6 @@ public class ListaTienda extends JDialog implements ActionListener {
 		imprimir("Largo\t: " + MenuPrincipal.largo4);
 		imprimir("Espesor\t: " + MenuPrincipal.espesor4);
 		imprimir("Contenido: "+ MenuPrincipal.contenido4);
-		
 	}
 
 	void imprimir(String cad) {

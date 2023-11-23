@@ -7,11 +7,15 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import app.MenuPrincipal;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.DefaultComboBoxModel;
 
 public class ModificarTienda extends JFrame implements ActionListener{
 
@@ -23,6 +27,7 @@ public class ModificarTienda extends JFrame implements ActionListener{
 	private JComboBox boxModelo;
 	private JButton btnCerrar;
 	private JButton btnGrabar;
+	private JTextField txtContenido;
 
 	/**
 	 * Launch the application.
@@ -46,7 +51,7 @@ public class ModificarTienda extends JFrame implements ActionListener{
 	public ModificarTienda() {
 		setTitle("Modificar Tienda");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 395, 200);
+		setBounds(100, 100, 395, 240);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -78,7 +83,9 @@ public class ModificarTienda extends JFrame implements ActionListener{
 		contentPane.add(lblNewLabel_5);
 		
 		boxModelo = new JComboBox();
+		boxModelo.setModel(new DefaultComboBoxModel(new String[] {"Cinza Plus", "Luxury", "Austria", "Yungay Mix", "Thal\u00EDa"}));
 		boxModelo.setBounds(97, 7, 168, 22);
+		boxModelo.addActionListener(this);
 		contentPane.add(boxModelo);
 		
 		txtPrecio = new JTextField();
@@ -111,11 +118,23 @@ public class ModificarTienda extends JFrame implements ActionListener{
 		btnGrabar.addActionListener(this);
 		contentPane.add(btnGrabar);
 		
+		JLabel lblNewLabel_6 = new JLabel("Contenido");
+		lblNewLabel_6.setBounds(10, 167, 63, 14);
+		contentPane.add(lblNewLabel_6);
+		
+		txtContenido = new JTextField();
+		txtContenido.setBounds(97, 164, 168, 20);
+		contentPane.add(txtContenido);
+		txtContenido.setColumns(10);
+		
 	}
 
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnGrabar) {
 			btnGrabarActionPerformed(e);
+		}
+		if (e.getSource() == boxModelo) {
+			boxModeloSelectIndex(e);
 		}
 		if (e.getSource() == btnCerrar) {
 			btnCerrarActionPerformed(e);
@@ -129,10 +148,96 @@ public class ModificarTienda extends JFrame implements ActionListener{
 		}
 	}
 
+	private void boxModeloSelectIndex(ActionEvent e) {
+		setSelectIndex();
+	}
+
+
 	private void btnGrabarActionPerformed(ActionEvent e) {
-		
+		getChangerResult();
 		
 	}
 	
+	//Metodo de cambios
+	void getChangerResult() {
+		switch (boxModelo.getSelectedIndex()) {
+		case 0:
+			MenuPrincipal.precio0 = Double.parseDouble(txtPrecio.getText());
+			MenuPrincipal.ancho0 = Double.parseDouble(txtPrecio.getText());
+			MenuPrincipal.largo0 = Double.parseDouble(txtPrecio.getText());
+			MenuPrincipal.espesor0 = Double.parseDouble(txtPrecio.getText());
+			MenuPrincipal.contenido0 = Integer.parseInt(txtPrecio.getText());
+			break;
+		case 1:
+			MenuPrincipal.precio1 = Double.parseDouble(txtPrecio.getText());
+			MenuPrincipal.ancho1 = Double.parseDouble(txtAncho.getText());
+			MenuPrincipal.largo1 = Double.parseDouble(txtLargo.getText());
+			MenuPrincipal.espesor1 = Double.parseDouble(txtEspesor.getText());
+			MenuPrincipal.contenido1 = Integer.parseInt(txtContenido.getText());
+			break;
+		case 2:
+			MenuPrincipal.precio2 = Double.parseDouble(txtPrecio.getText());
+			MenuPrincipal.ancho2 = Double.parseDouble(txtAncho.getText());
+			MenuPrincipal.largo2 = Double.parseDouble(txtLargo.getText());
+			MenuPrincipal.espesor2 = Double.parseDouble(txtEspesor.getText());
+			MenuPrincipal.contenido2 = Integer.parseInt(txtContenido.getText());
+			break;
+		case 3:
+			MenuPrincipal.precio3 = Double.parseDouble(txtPrecio.getText());
+			MenuPrincipal.ancho3 = Double.parseDouble(txtAncho.getText());
+			MenuPrincipal.largo3 = Double.parseDouble(txtLargo.getText());
+			MenuPrincipal.espesor3 = Double.parseDouble(txtEspesor.getText());
+			MenuPrincipal.contenido3 = Integer.parseInt(txtContenido.getText());
+			break;
+		case 4:
+			MenuPrincipal.precio4 = Double.parseDouble(txtPrecio.getText());
+			MenuPrincipal.ancho4 = Double.parseDouble(txtAncho.getText());
+			MenuPrincipal.largo4 = Double.parseDouble(txtLargo.getText());
+			MenuPrincipal.espesor4 = Double.parseDouble(txtEspesor.getText());
+			MenuPrincipal.contenido4 = Integer.parseInt(txtContenido.getText());
+			break;
+		}
+		JOptionPane.showMessageDialog(this, "Los cambios se realizaron");
+	}
 	
+	//Metodo de seleccion -> muestra el resultado 
+	void setSelectIndex() {
+		switch (boxModelo.getSelectedIndex()) {
+		case 0:
+			txtPrecio.setText(""+MenuPrincipal.precio0);
+			txtAncho.setText(""+MenuPrincipal.ancho0);
+			txtLargo.setText(""+MenuPrincipal.largo0);
+			txtEspesor.setText(""+MenuPrincipal.espesor0);
+			txtContenido.setText(""+MenuPrincipal.contenido0);
+			break;
+		case 1:
+			txtPrecio.setText(""+MenuPrincipal.precio1);
+			txtAncho.setText(""+MenuPrincipal.ancho1);
+			txtLargo.setText(""+MenuPrincipal.largo1);
+			txtEspesor.setText(""+MenuPrincipal.espesor1);
+			txtContenido.setText(""+MenuPrincipal.contenido1);			
+			break;
+		case 2:
+			txtPrecio.setText(""+MenuPrincipal.precio2);
+			txtAncho.setText(""+MenuPrincipal.ancho2);
+			txtLargo.setText(""+MenuPrincipal.largo2);
+			txtEspesor.setText(""+MenuPrincipal.espesor2);
+			txtContenido.setText(""+MenuPrincipal.contenido2);
+			break;
+		case 3:
+			txtPrecio.setText(""+MenuPrincipal.precio3);
+			txtAncho.setText(""+MenuPrincipal.ancho3);
+			txtLargo.setText(""+MenuPrincipal.largo3);
+			txtEspesor.setText(""+MenuPrincipal.espesor3);
+			txtContenido.setText(""+MenuPrincipal.contenido3);
+			break;
+		case 4:
+			txtPrecio.setText(""+MenuPrincipal.precio4);
+			txtAncho.setText(""+MenuPrincipal.ancho4);
+			txtLargo.setText(""+MenuPrincipal.largo4);
+			txtEspesor.setText(""+MenuPrincipal.espesor4);
+			txtContenido.setText(""+MenuPrincipal.contenido4);
+			break;
+		}
+	}
 }

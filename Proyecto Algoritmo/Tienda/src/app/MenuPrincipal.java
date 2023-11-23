@@ -63,7 +63,7 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 	public static double espesor4 = 7.2;
 	public static int contenido4 = 10;
 	// Porcentajes de descuento
-	public static double porcentaje1 = 7.5;
+	public static double porcentaje1 = 0.075;
 	public static double porcentaje2 = 10.0;
 	public static double porcentaje3 = 12.5;
 	public static double porcentaje4 = 15.0;

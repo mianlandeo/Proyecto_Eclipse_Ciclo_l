@@ -148,6 +148,10 @@ public class ConsultaTienda extends JFrame implements ActionListener {
 	}
 	
 	private void cboSeleccionIndex(ActionEvent event) {
+		setConsultInventory();
+	}
+	
+	void setConsultInventory() {
 		switch (boxSeleccion.getSelectedIndex()) {
 		case 0:
 			txtPrecio.setText(""+MenuPrincipal.precio0);
@@ -186,6 +190,4 @@ public class ConsultaTienda extends JFrame implements ActionListener {
 			break;
 		}
 	}
-	
-	
 }
