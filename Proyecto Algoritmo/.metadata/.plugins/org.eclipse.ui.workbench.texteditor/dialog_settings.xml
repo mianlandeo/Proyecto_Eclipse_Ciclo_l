@@ -6,14 +6,16 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="listaCeramico"/>
+		<item key="selection" value="can"/>
 		<list key="findhistory">
+			<item value="cantidad"/>
 			<item value="ListaCeramico"/>
 			<item value="Dialogolistar"/>
 			<item value="DialogoListar"/>
 			<item value="Tienda"/>
 		</list>
 		<list key="replacehistory">
+			<item value="can"/>
 			<item value="ListaCeramico"/>
 			<item value=""/>
 			<item value="MenuPrincipal"/>

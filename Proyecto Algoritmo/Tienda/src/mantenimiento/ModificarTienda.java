@@ -19,8 +19,8 @@ import javax.swing.DefaultComboBoxModel;
 
 public class ModificarTienda extends JFrame implements ActionListener{
 
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField txtPrecio;
 	private JTextField txtAncho;
 	private JTextField txtLargo;
 	private JTextField txtEspesor;
@@ -28,6 +28,7 @@ public class ModificarTienda extends JFrame implements ActionListener{
 	private JButton btnCerrar;
 	private JButton btnGrabar;
 	private JTextField txtContenido;
+	private JTextField txtPrecio;
 
 	/**
 	 * Launch the application.
@@ -88,11 +89,6 @@ public class ModificarTienda extends JFrame implements ActionListener{
 		boxModelo.addActionListener(this);
 		contentPane.add(boxModelo);
 		
-		txtPrecio = new JTextField();
-		txtPrecio.setBounds(97, 40, 168, 20);
-		contentPane.add(txtPrecio);
-		txtPrecio.setColumns(10);
-		
 		txtAncho = new JTextField();
 		txtAncho.setBounds(97, 71, 168, 20);
 		contentPane.add(txtAncho);
@@ -127,6 +123,11 @@ public class ModificarTienda extends JFrame implements ActionListener{
 		contentPane.add(txtContenido);
 		txtContenido.setColumns(10);
 		
+		txtPrecio = new JTextField();
+		txtPrecio.setBounds(97, 40, 168, 20);
+		contentPane.add(txtPrecio);
+		txtPrecio.setColumns(10);
+		
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -149,24 +150,35 @@ public class ModificarTienda extends JFrame implements ActionListener{
 	}
 
 	private void boxModeloSelectIndex(ActionEvent e) {
-		setSelectIndex();
+		int modelo;
+		
+		modelo = getModelo();
+		setSelectIndex(modelo);
 	}
 
 
 	private void btnGrabarActionPerformed(ActionEvent e) {
-		getChangerResult();
+		int modelo;
+		
+		modelo = getModelo();
+		
+		getChangerResult(modelo);
 		
 	}
 	
+	int getModelo() {
+		return boxModelo.getSelectedIndex();
+	}
+	
 	//Metodo de cambios
-	void getChangerResult() {
-		switch (boxModelo.getSelectedIndex()) {
+	void getChangerResult(int model) {
+		switch (model) {
 		case 0:
 			MenuPrincipal.precio0 = Double.parseDouble(txtPrecio.getText());
-			MenuPrincipal.ancho0 = Double.parseDouble(txtPrecio.getText());
-			MenuPrincipal.largo0 = Double.parseDouble(txtPrecio.getText());
-			MenuPrincipal.espesor0 = Double.parseDouble(txtPrecio.getText());
-			MenuPrincipal.contenido0 = Integer.parseInt(txtPrecio.getText());
+			MenuPrincipal.ancho0 = Double.parseDouble(txtAncho.getText());
+			MenuPrincipal.largo0 = Double.parseDouble(txtLargo.getText());
+			MenuPrincipal.espesor0 = Double.parseDouble(txtEspesor.getText());
+			MenuPrincipal.contenido0 = Integer.parseInt(txtContenido.getText());
 			break;
 		case 1:
 			MenuPrincipal.precio1 = Double.parseDouble(txtPrecio.getText());
@@ -197,12 +209,13 @@ public class ModificarTienda extends JFrame implements ActionListener{
 			MenuPrincipal.contenido4 = Integer.parseInt(txtContenido.getText());
 			break;
 		}
-		JOptionPane.showMessageDialog(this, "Los cambios se realizaron");
+		JOptionPane.showConfirmDialog(this, "Inventario Modificado exitosamente", "Aviso de modificación",
+				JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 	}
 	
 	//Metodo de seleccion -> muestra el resultado 
-	void setSelectIndex() {
-		switch (boxModelo.getSelectedIndex()) {
+	void setSelectIndex(int model) {
+		switch (model) {
 		case 0:
 			txtPrecio.setText(""+MenuPrincipal.precio0);
 			txtAncho.setText(""+MenuPrincipal.ancho0);
