@@ -123,18 +123,18 @@ public class Vender extends JFrame implements ActionListener {
 	
 	private void boxModeloSelectIndex(ActionEvent e) {
 		setResult();
-		
 	}
 	
 	//Variables Globales
-	public static int cantidadVendidas0 = 0, cantidadVendidas1, cantidadVendidas2, cantidadVendidas3, cantidadVendidas4, cantidadVentasGanadas,
-	modeloVendido0, modeloVendido1, modeloVendido2, modeloVendido3, modeloVendido4;
-	public static double importCompraTotal0, importCompraTotal1, importCompraTotal2, importCompraTotal3, importCompraTotal4, cantidadImportVenta,
-	cantidadPorcentaje0, cantidadPorcentaje1, cantidadPorcentaje2, cantidadPorcentaje3, cantidadPorcentaje4, cantidadPorcentajeAcumulado;
+	//Incremento vendidas
+	public static int cantidadVendidas0 = 0, cantidadVendidas1, cantidadVendidas2, cantidadVendidas3, cantidadVendidas4, cantidadVentasGanadas;
+	//Incremento de cajas vendidas
+	public static int cajaVendida0 = 0, cajaVendida1, cajaVendida2, cajaVendida3, cajaVendida4;
+	//Incremento total del importe de compra
+	public static double importCompraTotal0 = 0, importCompraTotal1, importCompraTotal2, importCompraTotal3, importCompraTotal4, cantidadImportVenta;
+	//Incremento de porcentaje
+	public static double cantidadPorcentaje0 = 0, cantidadPorcentaje1, cantidadPorcentaje2, cantidadPorcentaje3, cantidadPorcentaje4, cantidadPorcentajeAcumulado;
 	
-	
-	
-
 	private void btnGrabarActionPerformed(ActionEvent e) {
 		int cantidad;
 		int modelo;
@@ -147,23 +147,24 @@ public class Vender extends JFrame implements ActionListener {
 
 		cantidad = getCantidad();
 		modelo = getModelo();
-		totalCompra = getImportCompra(modelo, cantidad);
-		totalPorcentaje = getimportDescuento(cantidad, totalCompra);
-		totalPagar = getImporPagar(totalCompra, totalPorcentaje);
 		mostrarModelo = getModelResult(modelo);
 		mostrarPrecio = getsaleResult(modelo);
-		mostrarObsequio = getGift(cantidad);
-		getIncremento(modelo, totalCompra, cantidad);
+		totalCompra = getImportCompra(modelo, cantidad); //Total de la compra
+		totalPorcentaje = getimportDescuento(cantidad, totalCompra); //Descuento por el total de la compra
+		totalPagar = getImporPagar(totalCompra, totalPorcentaje); //Total a pagar
+		mostrarObsequio = getGift(cantidad); // Cantidad de obsequio a entregar por la cantidad del producto adquirido
+		getIncremento(modelo, totalPagar, cantidad); 
 		getContadorVentas();
 		getMensajeVentas();
-		getResult(totalPorcentaje, totalCompra, totalPagar, mostrarModelo, mostrarPrecio, cantidad, mostrarObsequio);
 		
+		//Salida
+		getResult(totalPorcentaje, totalCompra, totalPagar, mostrarModelo, mostrarPrecio, cantidad, mostrarObsequio);
 	}
 	
+	//Entrada
 	int getModelo() {
 		return boxModelo.getSelectedIndex(); 
 	}
-	
 	int getCantidad() {
 		return Integer.parseInt(txtCantidad.getText());
 		
@@ -183,8 +184,6 @@ public class Vender extends JFrame implements ActionListener {
 		printResult("Importe a pagar \t: " + "S/. " + String.format("%1.2f", totalPagar));
 		printResult("Tipo de obsequio \t: " + MenuPrincipal.tipoObsequio);
 		printResult("Unidades obsequiadas \t: " + salidaObsequio);
-		
-		
 	}
 	
 	//Mostrar marca del producto
@@ -209,6 +208,7 @@ public class Vender extends JFrame implements ActionListener {
 		}
 		return modelSelect;
 	}
+	
 	//Mostrar precio del producto
 	double getsaleResult(int model) {
 		double sale = 0;
@@ -284,47 +284,50 @@ public class Vender extends JFrame implements ActionListener {
 		}
 	}
 	
+	//Se suma el incremento del producto
 	void getIncremento(int model, double importPagar, int can) {
 		switch (model) {
 		case 0:
 			cantidadVendidas0++;
 			importCompraTotal0 += importPagar;
 			cantidadPorcentaje0 = (importCompraTotal0 * 100) / MenuPrincipal.cuotaDiaria;
-			modeloVendido0 += can;
+			cajaVendida0 += can;
 			break;
 		case 1:
 			cantidadVendidas1++;
 			importCompraTotal1 += importPagar;
 			cantidadPorcentaje1 = (importCompraTotal1 * 100) / MenuPrincipal.cuotaDiaria;
-			modeloVendido1 += can;			
+			cajaVendida1 += can;			
 			break;
 		case 2:
 			cantidadVendidas2++;
 			importCompraTotal2 += importPagar;
 			cantidadPorcentaje2 = (importCompraTotal2 * 100) / MenuPrincipal.cuotaDiaria;
-			modeloVendido2 += can;
+			cajaVendida2 += can;
 			break;
 		case 3:
 			cantidadVendidas3++;
 			importCompraTotal3 += importPagar;
 			cantidadPorcentaje3 = (importCompraTotal3 * 100) / MenuPrincipal.cuotaDiaria;
-			modeloVendido3 += can;
+			cajaVendida3 += can;
 			break;
 		case 4:
 			cantidadVendidas4++;
 			importCompraTotal4 += importPagar;
 			cantidadPorcentaje4 = (importCompraTotal4 * 100) / MenuPrincipal.cuotaDiaria;
-			modeloVendido4 += can;
+			cajaVendida4 += can;
 			break;
 			}
 	}
 	
+	//Acumula cantidad, importe de venta y porcentaje divido por la cuota diaria
 	void getContadorVentas() {
 		cantidadVentasGanadas = cantidadVendidas0 + cantidadVendidas1 + cantidadVendidas2 + cantidadVendidas3 + cantidadVendidas4;
 		cantidadImportVenta = importCompraTotal0 + importCompraTotal1 + importCompraTotal2 + importCompraTotal3 + importCompraTotal4;
 		cantidadPorcentajeAcumulado = (cantidadImportVenta * 100) / MenuPrincipal.cuotaDiaria;
 	}
 	
+	//El mensaje se ejecuta al llegar a las 5 ventas
 	private void getMensajeVentas() {
 		if (cantidadVentasGanadas%5 == 0) {
 			JOptionPane.showConfirmDialog(this, "Ventas Nro. " + cantidadVentasGanadas + "\n" +
@@ -332,11 +335,6 @@ public class Vender extends JFrame implements ActionListener {
 			"Porcentaje de las cuotas diarias : %" + String.format("%1.2f", cantidadPorcentajeAcumulado), 
 			"Avance de ventas", JOptionPane.OK_OPTION ,JOptionPane.INFORMATION_MESSAGE);
 		}
-
-	}
-	
-	void getMensajeAcumuladores() {
-		
 	}
 	
 	void printResult(String cad) {
@@ -357,6 +355,7 @@ public class Vender extends JFrame implements ActionListener {
 		break;
 	case 3:
 		txtPrecio.setText(""+MenuPrincipal.precio3);
+		break;
 	case 4:
 		txtPrecio.setText(""+MenuPrincipal.precio4);
 		break;

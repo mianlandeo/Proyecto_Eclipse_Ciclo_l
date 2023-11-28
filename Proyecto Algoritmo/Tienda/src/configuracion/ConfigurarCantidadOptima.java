@@ -7,6 +7,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import app.MenuPrincipal;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -56,6 +59,7 @@ public class ConfigurarCantidadOptima extends JFrame implements ActionListener {
 		
 		txtCantidades = new JTextField();
 		txtCantidades.setBounds(216, 8, 68, 20);
+		txtCantidades.setText(""+MenuPrincipal.cantidadOptima);
 		contentPane.add(txtCantidades);
 		txtCantidades.setColumns(10);
 		
@@ -73,13 +77,36 @@ public class ConfigurarCantidadOptima extends JFrame implements ActionListener {
 		if (e.getSource() == btnCerrar) {
 			btnCerrarActionPerformed(e);
 		}
-		if (e.getSource() == btnCerrar) {
+		if (e.getSource() == btnAceptar) {
 			btnAceptarActionPerformed(e);
 		}
 	}
 
 	private void btnAceptarActionPerformed(ActionEvent e) {
+		int cantidadOptima;
 		
+		cantidadOptima = getValorCantidadOptima();
+		
+		getCantidadOptima(cantidadOptima);
+		
+	}
+	
+	int getValorCantidadOptima() {
+		return Integer.parseInt(txtCantidades.getText());
+	}
+	
+	void getCantidadOptima(int cantidadOp) {
+		if (cantidadOp == 0) {
+			JOptionPane.showConfirmDialog(this, " El valor es nullo ", "Mensaje de error",
+					JOptionPane.CLOSED_OPTION, JOptionPane.INFORMATION_MESSAGE);
+			txtCantidades.requestFocus();
+			txtCantidades.selectAll();
+		}
+		else {
+			JOptionPane.showConfirmDialog(this, " El Cambio se realizo de forma exitosa ", "Mensaje",
+					JOptionPane.CLOSED_OPTION, JOptionPane.INFORMATION_MESSAGE);
+			MenuPrincipal.cantidadOptima = cantidadOp;
+		}
 		
 	}
 

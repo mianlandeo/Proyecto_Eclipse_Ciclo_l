@@ -6,8 +6,11 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="can"/>
+		<item key="selection" value="mostrarResultado0"/>
 		<list key="findhistory">
+			<item value="modeloVendido0"/>
+			<item value="imprimir"/>
+			<item value="&#x09;&#x09;&#x09;txtResultados.append"/>
 			<item value="cantidad"/>
 			<item value="ListaCeramico"/>
 			<item value="Dialogolistar"/>
@@ -15,9 +18,11 @@
 			<item value="Tienda"/>
 		</list>
 		<list key="replacehistory">
+			<item value="mostrarResultado0"/>
+			<item value="imprimir"/>
+			<item value=""/>
 			<item value="can"/>
 			<item value="ListaCeramico"/>
-			<item value=""/>
 			<item value="MenuPrincipal"/>
 		</list>
 	</section>

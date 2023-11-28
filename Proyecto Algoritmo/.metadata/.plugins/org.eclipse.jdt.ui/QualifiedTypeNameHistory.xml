@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
     <fullyQualifiedTypeName name="mantenimiento.ListaCeramico"/>
-    <fullyQualifiedTypeName name="java.lang.Double"/>
     <fullyQualifiedTypeName name="com.sun.media.sound.ModelOscillator"/>
+    <fullyQualifiedTypeName name="com.sun.java.swing.action.OkAction"/>
+    <fullyQualifiedTypeName name="sun.invoke.empty.Empty"/>
+    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="configuracion.ConfigurarCantidadOptima"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="ventas.GenerarReportes"/>
     <fullyQualifiedTypeName name="ventas.Vender"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="app.MenuPrincipal"/>
+    <fullyQualifiedTypeName name="java.lang.Double"/>
 </qualifiedTypeNameHistroy>

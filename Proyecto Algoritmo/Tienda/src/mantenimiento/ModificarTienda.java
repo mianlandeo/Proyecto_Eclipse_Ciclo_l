@@ -209,8 +209,10 @@ public class ModificarTienda extends JFrame implements ActionListener{
 			MenuPrincipal.contenido4 = Integer.parseInt(txtContenido.getText());
 			break;
 		}
-		JOptionPane.showConfirmDialog(this, "Inventario Modificado exitosamente", "Aviso de modificación",
-				JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+		int opc = JOptionPane.showConfirmDialog(this, "Valores cambiados, deseas seguir?", "Mensaje de cambios", JOptionPane.YES_NO_OPTION);
+		if (opc == 1) {
+			dispose();
+		}
 	}
 	
 	//Metodo de seleccion -> muestra el resultado 

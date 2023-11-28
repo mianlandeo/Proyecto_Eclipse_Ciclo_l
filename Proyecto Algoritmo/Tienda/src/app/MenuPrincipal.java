@@ -238,13 +238,13 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 		ListaTienda listaCeramico = new ListaTienda();
 		listaCeramico.setLocationRelativeTo(this);
 		listaCeramico.setVisible(true);
-		
 	}
 
 	//Modificar Tienda
 	private void menuActionModifyCeramico(ActionEvent e) {
 		ModificarTienda modificarCeramico = new ModificarTienda();
-		modificarCeramico.setVisible(true);
+		modificarCeramico.setLocationRelativeTo(this);
+		modificarCeramico.setVisible(true); 
 	}
 
 	//Consultar Tienda
@@ -277,7 +277,6 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 		ConfigurarDescuentos configurarDescuentos = new ConfigurarDescuentos();
 		configurarDescuentos.setLocationRelativeTo(this);
 		configurarDescuentos.setVisible(true);
-		
 	}
 	
 	//Configurar obsequios

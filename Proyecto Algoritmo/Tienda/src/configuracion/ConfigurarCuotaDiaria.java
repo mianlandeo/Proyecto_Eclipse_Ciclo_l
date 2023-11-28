@@ -7,6 +7,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import app.MenuPrincipal;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -54,6 +57,7 @@ public class ConfigurarCuotaDiaria extends JFrame implements ActionListener{
 		
 		txtCantidad = new JTextField();
 		txtCantidad.setBounds(171, 8, 131, 20);
+		txtCantidad.setText(""+MenuPrincipal.cuotaDiaria);
 		contentPane.add(txtCantidad);
 		txtCantidad.setColumns(10);
 		
@@ -79,8 +83,37 @@ public class ConfigurarCuotaDiaria extends JFrame implements ActionListener{
 
 	private void btnAceptarActionPerformed(ActionEvent e) {
 		
+		double cuotasDiarias;
+		
+		cuotasDiarias =	getCambioCuotaDiaria();
+		
+		getCuotasDiarias(cuotasDiarias);
 		
 	}
+	
+	/*int getValorCuotasDiarias() {
+		return Integer.parseInt(txtCantidad.getText());
+	}*/
+	
+	void getCuotasDiarias(double cantidadOp) {
+		if (cantidadOp == 0) {
+			JOptionPane.showConfirmDialog(this, " El valor es nullo ", "Mensaje de error",
+					JOptionPane.CLOSED_OPTION, JOptionPane.INFORMATION_MESSAGE);
+			txtCantidad.requestFocus();
+			txtCantidad.selectAll();
+		}
+		else {
+			JOptionPane.showConfirmDialog(this, " Cambio exitoso ", "Mensaje",
+					JOptionPane.CLOSED_OPTION, JOptionPane.INFORMATION_MESSAGE);
+			MenuPrincipal.cuotaDiaria = cantidadOp;
+			dispose();
+		}
+	}
+	
+	double getCambioCuotaDiaria() {
+		return MenuPrincipal.cuotaDiaria = Double.parseDouble(txtCantidad.getText());
+	}
+	
 
 	private void btnCancelarActionPerformed(ActionEvent e) {
 		int opc = JOptionPane.showConfirmDialog(this, "Desea Terminar?", "Conformar", JOptionPane.YES_NO_OPTION);
