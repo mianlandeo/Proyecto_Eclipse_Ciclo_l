@@ -96,6 +96,7 @@ public class ListaTienda extends JDialog implements ActionListener {
 		getResult();
 	}
 	
+	//Muestra una lista de los articulos disponibles y su información de cada una
 	void getResult() {
 		txtS.setText("");
 		imprimir("Listado de Ceramicos");

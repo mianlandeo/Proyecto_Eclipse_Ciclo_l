@@ -38,7 +38,6 @@ public class AcercaDe extends JFrame implements ActionListener{
 	 * Create the frame.
 	 */
 	public AcercaDe() {
-		setTitle("Acerca de.");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 261);
 		contentPane = new JPanel();
@@ -55,12 +54,12 @@ public class AcercaDe extends JFrame implements ActionListener{
 		
 		JLabel lblAño = new JLabel("2023");
 		lblAño.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblAño.setBounds(205, 162, 28, 25);
+		lblAño.setBounds(193, 159, 34, 25);
 		contentPane.add(lblAño);
 		
 		btnCerrar = new JButton("Cerrar");
 		btnCerrar.addActionListener(this);
-		btnCerrar.setBounds(176, 188, 89, 23);
+		btnCerrar.setBounds(165, 188, 89, 23);
 		contentPane.add(btnCerrar);
 		
 		JSeparator separator = new JSeparator();
@@ -70,20 +69,19 @@ public class AcercaDe extends JFrame implements ActionListener{
 		JLabel lblAutores = new JLabel("Autores");
 		lblAutores.setForeground(Color.BLACK);
 		lblAutores.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblAutores.setBounds(184, 44, 55, 39);
+		lblAutores.setBounds(173, 44, 55, 39);
 		contentPane.add(lblAutores);
 		
 		JLabel lblNewLabel = new JLabel("Michel Torres Landeo");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblNewLabel.setBounds(156, 94, 128, 14);
+		lblNewLabel.setBounds(154, 94, 138, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Emilio Cabrera");
-		lblNewLabel_1.setBounds(184, 119, 68, 14);
+		lblNewLabel_1.setBounds(173, 119, 108, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Palacios Mediomundo Keiber Antonio");
-		lblNewLabel_2.setBounds(135, 144, 174, 14);
+		lblNewLabel_2.setBounds(121, 144, 184, 14);
 		contentPane.add(lblNewLabel_2);
 	}
 	

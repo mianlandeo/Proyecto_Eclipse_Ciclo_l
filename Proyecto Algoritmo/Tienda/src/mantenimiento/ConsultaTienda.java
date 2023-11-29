@@ -151,6 +151,7 @@ public class ConsultaTienda extends JFrame implements ActionListener {
 		setConsultInventory();
 	}
 	
+	//Muestra información de cada articulo seleccionando un articulo en el ComboBox
 	void setConsultInventory() {
 		switch (boxSeleccion.getSelectedIndex()) {
 		case 0:

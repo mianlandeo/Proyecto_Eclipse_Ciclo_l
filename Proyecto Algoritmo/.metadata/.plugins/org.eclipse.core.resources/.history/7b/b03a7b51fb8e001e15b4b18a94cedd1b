@@ -32,7 +32,7 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 	public static double precio0 = 92.56;
 	public static double ancho0 = 62.0;
 	public static double largo0 = 62.0;
-	public static double espesor0 = 8;
+	public static double espesor0 = 8.0;
 	public static int contenido0 = 6;
 	// Datos mínimos del segundo producto
 	public static String modelo1 = "Luxury";
@@ -63,7 +63,7 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 	public static double espesor4 = 7.2;
 	public static int contenido4 = 10;
 	// Porcentajes de descuento
-	public static double porcentaje1 = 0.075;
+	public static double porcentaje1 = 7.5;
 	public static double porcentaje2 = 10.0;
 	public static double porcentaje3 = 12.5;
 	public static double porcentaje4 = 15.0;
@@ -109,10 +109,6 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 			}
 		});
 	}
-
-	/**
-	 * Inicio del menu frame.
-	 */
 	public MenuPrincipal() {
 		setTitle("Tienda");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -242,13 +238,13 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 		ListaTienda listaCeramico = new ListaTienda();
 		listaCeramico.setLocationRelativeTo(this);
 		listaCeramico.setVisible(true);
-		
 	}
 
 	//Modificar Tienda
 	private void menuActionModifyCeramico(ActionEvent e) {
 		ModificarTienda modificarCeramico = new ModificarTienda();
-		modificarCeramico.setVisible(true);
+		modificarCeramico.setLocationRelativeTo(this);
+		modificarCeramico.setVisible(true); 
 	}
 
 	//Consultar Tienda
@@ -281,7 +277,6 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 		ConfigurarDescuentos configurarDescuentos = new ConfigurarDescuentos();
 		configurarDescuentos.setLocationRelativeTo(this);
 		configurarDescuentos.setVisible(true);
-		
 	}
 	
 	//Configurar obsequios

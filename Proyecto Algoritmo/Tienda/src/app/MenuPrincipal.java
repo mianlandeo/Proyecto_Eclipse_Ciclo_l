@@ -121,7 +121,7 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 		menuBar.add(mnArchivos);
 		
 		mntmCerrar = new JMenuItem("Salir");
-		mntmCerrar.setIcon(new ImageIcon("C:\\Users\\mianl\\Projectos Eclipse\\proyecto en grupo\\Proyecto-Ceramicas\\Tienda Ceramica\\src\\img\\exit.png"));
+		mntmCerrar.setIcon(new ImageIcon("C:\\Users\\mianl\\Projectos Eclipse\\main\\Proyecto Algoritmo\\Tienda\\img\\exit.png"));
 		mntmCerrar.setSelectedIcon(null);
 		mntmCerrar.addActionListener(this);
 		mnArchivos.add(mntmCerrar);
@@ -130,15 +130,17 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 		menuBar.add(mnMantenimiento);
 		
 		mntmConsulta_ceramico = new JMenuItem("Consultar cer\u00E1mico");
-		mntmConsulta_ceramico.setIcon(new ImageIcon("C:\\Users\\mianl\\Projectos Eclipse\\proyecto en grupo\\Proyecto-Ceramicas\\Tienda Ceramica\\src\\img\\search.png"));
+		mntmConsulta_ceramico.setIcon(new ImageIcon("C:\\Users\\mianl\\Projectos Eclipse\\main\\Proyecto Algoritmo\\Tienda\\img\\search.png"));
 		mntmConsulta_ceramico.addActionListener(this);
 		mnMantenimiento.add(mntmConsulta_ceramico);
 		
 		mntmModificar_ceramico = new JMenuItem("Modificar cer\u00E1mico");
+		mntmModificar_ceramico.setIcon(new ImageIcon("C:\\Users\\mianl\\Projectos Eclipse\\main\\Proyecto Algoritmo\\Tienda\\img\\pencil.png"));
 		mntmModificar_ceramico.addActionListener(this);
 		mnMantenimiento.add(mntmModificar_ceramico);
 		
 		mntmLista_Ceramico = new JMenuItem("Listar cer\u00E1micos");
+		mntmLista_Ceramico.setIcon(new ImageIcon("C:\\Users\\mianl\\Projectos Eclipse\\main\\Proyecto Algoritmo\\Tienda\\img\\list.png"));
 		mntmLista_Ceramico.addActionListener(this);
 		mnMantenimiento.add(mntmLista_Ceramico);
 		
@@ -146,10 +148,12 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 		menuBar.add(mnVentas);
 		
 		mntm_Vender = new JMenuItem("Vender");
+		mntm_Vender.setIcon(new ImageIcon("C:\\Users\\mianl\\Projectos Eclipse\\main\\Proyecto Algoritmo\\Tienda\\img\\seller.png"));
 		mntm_Vender.addActionListener(this);
 		mnVentas.add(mntm_Vender);
 		
 		mntmGenerar_reportes = new JMenuItem("Generar reportes");
+		mntmGenerar_reportes.setIcon(new ImageIcon("C:\\Users\\mianl\\Projectos Eclipse\\main\\Proyecto Algoritmo\\Tienda\\img\\report.png"));
 		mntmGenerar_reportes.addActionListener(this);
 		mnVentas.add(mntmGenerar_reportes);
 		
@@ -176,6 +180,7 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 		menuBar.add(mnAyuda);
 		
 		mntmAcerca_de = new JMenuItem("Acerca de Tienda");
+		mntmAcerca_de.setIcon(new ImageIcon("C:\\Users\\mianl\\Projectos Eclipse\\main\\Proyecto Algoritmo\\Tienda\\img\\support.png"));
 		mntmAcerca_de.addActionListener(this);
 		mnAyuda.add(mntmAcerca_de);
 		contentPane = new JPanel();

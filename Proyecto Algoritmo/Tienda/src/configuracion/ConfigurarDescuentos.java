@@ -147,6 +147,7 @@ public class ConfigurarDescuentos extends JFrame implements ActionListener{
 		getporcentaje0(porcentajeUno, porcentajeDos, porcentajeTres, porcentajeCuatro);
 	}
 	
+	
 	void getporcentaje0(double por1, double por2, double por3, double por4) {
 		//Sí la cantidad es 0, el valor almacenado sera anulado y se mostrara un mensaje 
 		if (por1 == 0) {
@@ -185,18 +186,22 @@ public class ConfigurarDescuentos extends JFrame implements ActionListener{
 		
 	}
 	
+	//Entrada de dato
 	double getporcentajeUno() {
 		return Double.parseDouble(txtUna_cinco.getText());
 	}
 	
+	//Entrada de dato
 	double getporcentajeDos() {
 		return Double.parseDouble(txtSeis_Diez.getText());
 	}
 	
+	//Entrada de dato
 	double getporcentajeTres() {
 		return Double.parseDouble(txtOnce_quince.getText());
 	}
 	
+	//Entrada de dato
 	double getporcentajeCuatro() {
 		return Double.parseDouble(txtMas_Quince.getText());
 	}

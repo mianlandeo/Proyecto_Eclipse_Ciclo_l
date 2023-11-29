@@ -128,7 +128,6 @@ public class ConfigurarObsequios extends JFrame implements ActionListener{
 	
 	//Si el valor es 0 mandara un mensaje de error
 	void verificacionValores(String obsequio, int unidadUC, int unidadSD, int unidadMasO) {
-		//Si el resultado es 0 dara un mensaje de error 
 		if (obsequio.length() == 0) {
 			JOptionPane.showConfirmDialog(this, "Sin valor, por favor coloca el tipo de obsequio que se dara", "Mensaje de error",
 					JOptionPane.CLOSED_OPTION, JOptionPane.INFORMATION_MESSAGE);
@@ -150,7 +149,6 @@ public class ConfigurarObsequios extends JFrame implements ActionListener{
 			txtObsequio.requestFocus();
 			txtObsequio.selectAll();
 		} else {
-			//Si el resultado es mayor a 1 el resultado se guardara 
 			JOptionPane.showConfirmDialog(this, "Los valores se cambiaron",
 	                "MENSAJE DE AVISO", JOptionPane.CLOSED_OPTION,
 	                JOptionPane.INFORMATION_MESSAGE);

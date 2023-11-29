@@ -82,14 +82,20 @@ public class ConfigurarCuotaDiaria extends JFrame implements ActionListener{
 	}
 
 	private void btnAceptarActionPerformed(ActionEvent e) {
+		
 		double cuotasDiarias;
+		
 		cuotasDiarias =	getCambioCuotaDiaria();
+		
 		getCuotasDiarias(cuotasDiarias);
+		
 	}
 	
+	/*int getValorCuotasDiarias() {
+		return Integer.parseInt(txtCantidad.getText());
+	}*/
 	
 	void getCuotasDiarias(double cantidadOp) {
-		//Si el resultado es 0 el usuario recibira un mensaje de error
 		if (cantidadOp == 0) {
 			JOptionPane.showConfirmDialog(this, " El valor es nullo ", "Mensaje de error",
 					JOptionPane.CLOSED_OPTION, JOptionPane.INFORMATION_MESSAGE);
@@ -104,7 +110,6 @@ public class ConfigurarCuotaDiaria extends JFrame implements ActionListener{
 		}
 	}
 	
-	//Entrada de dato / Guarda el tipo de dato que se agrego
 	double getCambioCuotaDiaria() {
 		return MenuPrincipal.cuotaDiaria = Double.parseDouble(txtCantidad.getText());
 	}

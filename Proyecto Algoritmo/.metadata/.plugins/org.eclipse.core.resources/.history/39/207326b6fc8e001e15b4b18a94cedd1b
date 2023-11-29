@@ -14,13 +14,14 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.Color;
 
-public class ConfigurarCuotaDiaria extends JFrame implements ActionListener{
+public class ConfigurarCantidadOptima extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
-	private JTextField txtCantidad;
+	private JTextField txtCantidades;
 	private JButton btnAceptar;
-	private JButton btnCancelar;
+	private JButton btnCerrar;
 
 	/**
 	 * Launch the application.
@@ -29,7 +30,7 @@ public class ConfigurarCuotaDiaria extends JFrame implements ActionListener{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ConfigurarCuotaDiaria frame = new ConfigurarCuotaDiaria();
+					ConfigurarCantidadOptima frame = new ConfigurarCantidadOptima();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,43 +39,40 @@ public class ConfigurarCuotaDiaria extends JFrame implements ActionListener{
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
-	public ConfigurarCuotaDiaria() {
-		setTitle("Configurar cuota diaria");
+	public ConfigurarCantidadOptima() {
+		setBackground(new Color(0, 0, 0));
+		setTitle("Configurar cantidad \u00F3ptima");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 109);
+		setBounds(100, 100, 450, 110);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Cuota diaria esperada (S/.)");
-		lblNewLabel.setBounds(10, 11, 151, 14);
+		JLabel lblNewLabel = new JLabel("Cantidad \u00F3ptima de unidades vendidas");
+		lblNewLabel.setBounds(10, 11, 204, 14);
 		contentPane.add(lblNewLabel);
 		
-		txtCantidad = new JTextField();
-		txtCantidad.setBounds(171, 8, 131, 20);
-		txtCantidad.setText(""+MenuPrincipal.cuotaDiaria);
-		contentPane.add(txtCantidad);
-		txtCantidad.setColumns(10);
+		txtCantidades = new JTextField();
+		txtCantidades.setBounds(216, 8, 68, 20);
+		txtCantidades.setText(""+MenuPrincipal.cantidadOptima);
+		contentPane.add(txtCantidades);
+		txtCantidades.setColumns(10);
 		
 		btnAceptar = new JButton("Aceptar");
-		btnAceptar.setBounds(335, 7, 89, 23);
+		btnAceptar.setBounds(314, 7, 89, 23);
 		btnAceptar.addActionListener(this);
 		contentPane.add(btnAceptar);
 		
-		btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(335, 41, 89, 23);
-		btnCancelar.addActionListener(this);
-		contentPane.add(btnCancelar);
+		btnCerrar = new JButton("Cerrar");
+		btnCerrar.setBounds(314, 41, 89, 23);
+		btnCerrar.addActionListener(this);
+		contentPane.add(btnCerrar);
 	}
-	
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == btnCancelar) {
-			btnCancelarActionPerformed(e);
+		if (e.getSource() == btnCerrar) {
+			btnCerrarActionPerformed(e);
 		}
 		if (e.getSource() == btnAceptar) {
 			btnAceptarActionPerformed(e);
@@ -82,35 +80,33 @@ public class ConfigurarCuotaDiaria extends JFrame implements ActionListener{
 	}
 
 	private void btnAceptarActionPerformed(ActionEvent e) {
-		double cuotasDiarias;
-		cuotasDiarias =	getCambioCuotaDiaria();
-		getCuotasDiarias(cuotasDiarias);
+		int cantidadOptima;
+		cantidadOptima = getValorCantidadOptima();
+		getCantidadOptima(cantidadOptima);
+		
 	}
 	
+	//Entrada de dato
+	int getValorCantidadOptima() {
+		return Integer.parseInt(txtCantidades.getText());
+	}
 	
-	void getCuotasDiarias(double cantidadOp) {
-		//Si el resultado es 0 el usuario recibira un mensaje de error
+	void getCantidadOptima(int cantidadOp) {
 		if (cantidadOp == 0) {
 			JOptionPane.showConfirmDialog(this, " El valor es nullo ", "Mensaje de error",
 					JOptionPane.CLOSED_OPTION, JOptionPane.INFORMATION_MESSAGE);
-			txtCantidad.requestFocus();
-			txtCantidad.selectAll();
+			txtCantidades.requestFocus();
+			txtCantidades.selectAll();
 		}
 		else {
-			JOptionPane.showConfirmDialog(this, " Cambio exitoso ", "Mensaje",
+			JOptionPane.showConfirmDialog(this, " El Cambio se realizo de forma exitosa ", "Mensaje",
 					JOptionPane.CLOSED_OPTION, JOptionPane.INFORMATION_MESSAGE);
-			MenuPrincipal.cuotaDiaria = cantidadOp;
-			dispose();
+			MenuPrincipal.cantidadOptima = cantidadOp;
 		}
+		
 	}
-	
-	//Entrada de dato / Guarda el tipo de dato que se agrego
-	double getCambioCuotaDiaria() {
-		return MenuPrincipal.cuotaDiaria = Double.parseDouble(txtCantidad.getText());
-	}
-	
 
-	private void btnCancelarActionPerformed(ActionEvent e) {
+	private void btnCerrarActionPerformed(ActionEvent e) {
 		int opc = JOptionPane.showConfirmDialog(this, "Desea Terminar?", "Conformar", JOptionPane.YES_NO_OPTION);
 		if (opc == 0) {
 			dispose();

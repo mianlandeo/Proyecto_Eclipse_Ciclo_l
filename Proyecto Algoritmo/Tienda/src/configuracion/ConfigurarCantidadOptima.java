@@ -18,14 +18,12 @@ import java.awt.Color;
 
 public class ConfigurarCantidadOptima extends JFrame implements ActionListener {
 
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtCantidades;
 	private JButton btnAceptar;
 	private JButton btnCerrar;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -39,9 +37,6 @@ public class ConfigurarCantidadOptima extends JFrame implements ActionListener {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public ConfigurarCantidadOptima() {
 		setBackground(new Color(0, 0, 0));
 		setTitle("Configurar cantidad \u00F3ptima");
@@ -84,13 +79,12 @@ public class ConfigurarCantidadOptima extends JFrame implements ActionListener {
 
 	private void btnAceptarActionPerformed(ActionEvent e) {
 		int cantidadOptima;
-		
 		cantidadOptima = getValorCantidadOptima();
-		
 		getCantidadOptima(cantidadOptima);
 		
 	}
 	
+	//Entrada de dato
 	int getValorCantidadOptima() {
 		return Integer.parseInt(txtCantidades.getText());
 	}

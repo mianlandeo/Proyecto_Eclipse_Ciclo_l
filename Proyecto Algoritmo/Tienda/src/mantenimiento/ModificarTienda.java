@@ -151,7 +151,6 @@ public class ModificarTienda extends JFrame implements ActionListener{
 
 	private void boxModeloSelectIndex(ActionEvent e) {
 		int modelo;
-		
 		modelo = getModelo();
 		setSelectIndex(modelo);
 	}
@@ -159,11 +158,8 @@ public class ModificarTienda extends JFrame implements ActionListener{
 
 	private void btnGrabarActionPerformed(ActionEvent e) {
 		int modelo;
-		
 		modelo = getModelo();
-		
 		getChangerResult(modelo);
-		
 	}
 	
 	int getModelo() {
